@@ -29,7 +29,16 @@ namespace Dmitry
             Form newForm = new SecondLab();
             newForm.Show();
         }
-
+        private void openThirdLabButton_Click(object sender, EventArgs e)
+        {
+            Form newForm = new ThirdLab();
+            newForm.Show();
+        }
+        private void openFourthLabButton_Click(object sender, EventArgs e)
+        {
+            Form newForm = new FourthLab();
+            newForm.Show();
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime currentDateTime = File.GetLastWriteTime(myPath);
@@ -52,5 +61,7 @@ namespace Dmitry
             StreamWriter f = new StreamWriter(myPath);
             f.Close();
         }
+
+
     }
 }

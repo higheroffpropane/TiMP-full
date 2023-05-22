@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FourthLab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FourthLab.Designer.cs">
+      <DependentUpon>FourthLab.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,27 @@
     <Compile Include="SecondLab.Designer.cs">
       <DependentUpon>SecondLab.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThirdLab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThirdLab.Designer.cs">
+      <DependentUpon>ThirdLab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThirdLab_Fractals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThirdLab_Fractals.Designer.cs">
+      <DependentUpon>ThirdLab_Fractals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThirdLab_Task.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThirdLab_Task.Designer.cs">
+      <DependentUpon>ThirdLab_Task.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FourthLab.resx">
+      <DependentUpon>FourthLab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -74,6 +101,15 @@
     </Compile>
     <EmbeddedResource Include="SecondLab.resx">
       <DependentUpon>SecondLab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThirdLab.resx">
+      <DependentUpon>ThirdLab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThirdLab_Fractals.resx">
+      <DependentUpon>ThirdLab_Fractals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThirdLab_Task.resx">
+      <DependentUpon>ThirdLab_Task.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

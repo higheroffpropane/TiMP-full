@@ -34,6 +34,8 @@ namespace Dmitry
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.clearLogsButton = new System.Windows.Forms.Button();
+            this.openThirdLabButton = new System.Windows.Forms.Button();
+            this.openFourthLabButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openSecondLabButton
@@ -69,11 +71,33 @@ namespace Dmitry
             this.clearLogsButton.UseVisualStyleBackColor = true;
             this.clearLogsButton.Click += new System.EventHandler(this.clearLogsButton_Click);
             // 
+            // openThirdLabButton
+            // 
+            this.openThirdLabButton.Location = new System.Drawing.Point(223, 12);
+            this.openThirdLabButton.Name = "openThirdLabButton";
+            this.openThirdLabButton.Size = new System.Drawing.Size(205, 23);
+            this.openThirdLabButton.TabIndex = 3;
+            this.openThirdLabButton.Text = "третья лаба";
+            this.openThirdLabButton.UseVisualStyleBackColor = true;
+            this.openThirdLabButton.Click += new System.EventHandler(this.openThirdLabButton_Click);
+            // 
+            // openFourthLabButton
+            // 
+            this.openFourthLabButton.Location = new System.Drawing.Point(434, 12);
+            this.openFourthLabButton.Name = "openFourthLabButton";
+            this.openFourthLabButton.Size = new System.Drawing.Size(205, 23);
+            this.openFourthLabButton.TabIndex = 4;
+            this.openFourthLabButton.Text = "четвертая лаба";
+            this.openFourthLabButton.UseVisualStyleBackColor = true;
+            this.openFourthLabButton.Click += new System.EventHandler(this.openFourthLabButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1549, 681);
+            this.ClientSize = new System.Drawing.Size(907, 468);
+            this.Controls.Add(this.openFourthLabButton);
+            this.Controls.Add(this.openThirdLabButton);
             this.Controls.Add(this.clearLogsButton);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.openSecondLabButton);
@@ -89,6 +113,8 @@ namespace Dmitry
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button clearLogsButton;
+        private System.Windows.Forms.Button openThirdLabButton;
+        private System.Windows.Forms.Button openFourthLabButton;
     }
 }
 

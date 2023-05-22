@@ -238,8 +238,9 @@ namespace Dmitry
             textBoxSurname.BackColor = Color.Empty;
         }
 
-            private void buttonDecode_Click(object sender, EventArgs e)
+        private void buttonDecode_Click(object sender, EventArgs e)
         {
+            exception2InformationLabel.Text = "";
             try
             {
                 if (string.IsNullOrEmpty(textBoxName.Text) || string.IsNullOrEmpty(textBoxSurname.Text))
@@ -271,7 +272,5 @@ namespace Dmitry
             f.WriteLine("\n\n");
             f.Close();
         }
-
-
     }
 }
