@@ -13,8 +13,9 @@ namespace Dmitry
 {
     public partial class SecondLab : Form
     {
+        private MyDelegate d;
         static string myPath = "C:\\Users\\higheroffpropane\\source\\repos\\Dmitry\\dimonLog.txt";
-        public SecondLab()
+        public SecondLab(MyDelegate sender)
         {
             InitializeComponent();
             for (int i = 0; i < 10; i++)
@@ -23,6 +24,7 @@ namespace Dmitry
                 arrayDataGridView.Columns[i].Width = 75;
             }
             arrayDataGridView.Rows.Add();
+            d = sender;
         }
 
         private void fillArrayButton_Click(object sender, EventArgs e)
@@ -271,6 +273,7 @@ namespace Dmitry
             f.WriteLine("TargetSite: " + ex.TargetSite + "\n");
             f.WriteLine("\n\n");
             f.Close();
+            d($"{ex.InnerException},\n{ex.Message},\n{ex.Source},\n{ex.StackTrace},\n{ex.TargetSite}");
         }
     }
 }

@@ -19,4 +19,6 @@ namespace Dmitry
             Application.Run(new MainForm());
         }
     }
+    public delegate void MyDelegate(string data);
+
 }

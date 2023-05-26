@@ -17,6 +17,7 @@ namespace Dmitry
 {
     public partial class ThirdLab : Form
     {
+        private MyDelegate d;
         static string myPath = "C:\\Users\\higheroffpropane\\source\\repos\\Dmitry\\dimonLog.txt";
         private Bitmap image;
 
@@ -39,7 +40,7 @@ namespace Dmitry
         int F = 1;
         int nterms = 1;
 
-        public ThirdLab()
+        public ThirdLab(MyDelegate sender)
         {
             InitializeComponent();
             numericUpDownWidth.Value = pictureBox1.Width;
@@ -51,6 +52,7 @@ namespace Dmitry
             isDrawing = false;
 
             pen2 = new Pen(Color.Black, 1);
+            d = sender;
         }
         private void ThirdLab_Load(object sender, EventArgs e)
         {
@@ -345,13 +347,13 @@ namespace Dmitry
 
         private void buttonFractals_Click(object sender, EventArgs e)
         {
-            Form newForm = new ThirdLab_Fractals();
+            Form newForm = new ThirdLab_Fractals(d);
             newForm.Show();
         }
 
         private void buttonTask_Click(object sender, EventArgs e)
         {
-            Form newForm = new ThirdLab_Task();
+            Form newForm = new ThirdLab_Task(d);
             newForm.Show();
         }
         private void SendExceptionInformationInTxt(string str, Exception ex)
@@ -365,6 +367,7 @@ namespace Dmitry
             f.WriteLine("TargetSite: " + ex.TargetSite + "\n");
             f.WriteLine("\n\n");
             f.Close();
+            d($"{ex.InnerException},\n{ex.Message},\n{ex.Source},\n{ex.StackTrace},\n{ex.TargetSite}");
         }
     }
 }

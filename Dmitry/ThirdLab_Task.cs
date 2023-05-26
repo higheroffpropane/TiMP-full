@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,7 @@ namespace Dmitry
 {
     public partial class ThirdLab_Task : Form
     {
+        private MyDelegate D;
         static string myPath = "C:\\Users\\higheroffpropane\\source\\repos\\Dmitry\\dimonLog.txt";
         private Bitmap image;
         private Brush brush;
@@ -25,12 +27,13 @@ namespace Dmitry
         int n;
         double result;
 
-        public ThirdLab_Task()
+        public ThirdLab_Task(MyDelegate sender)
         {
             InitializeComponent();
             image = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             brush = new SolidBrush(Color.Black);
             font = new Font("Times New Roman", 16);
+            D = sender;
         }
         private void ThirdLab_Task_Paint(object sender, PaintEventArgs e)
         {
@@ -87,6 +90,7 @@ namespace Dmitry
             f.WriteLine("TargetSite: " + ex.TargetSite + "\n");
             f.WriteLine("\n\n");
             f.Close();
+            D($"{ex.InnerException},\n{ex.Message},\n{ex.Source},\n{ex.StackTrace},\n{ex.TargetSite}");
         }
     }
 }

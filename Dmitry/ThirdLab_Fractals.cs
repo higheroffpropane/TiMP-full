@@ -13,12 +13,14 @@ namespace Dmitry
 {
     public partial class ThirdLab_Fractals : Form
     {
-        int flag = 0;
+        private MyDelegate d;
+        
         static string myPath = "C:\\Users\\higheroffpropane\\source\\repos\\Dmitry\\dimonLog.txt";
-        public ThirdLab_Fractals()
+        public ThirdLab_Fractals(MyDelegate sender)
         {
             InitializeComponent();
             this.Resize += Lab3_Resize;
+            d = sender;
         }
         private void Lab3_Resize(object sender, EventArgs e)
         {
@@ -154,6 +156,7 @@ namespace Dmitry
             f.WriteLine("TargetSite: " + ex.TargetSite + "\n");
             f.WriteLine("\n\n");
             f.Close();
+            d($"{ex.InnerException},\n{ex.Message},\n{ex.Source},\n{ex.StackTrace},\n{ex.TargetSite}");
         }
     }
 }
