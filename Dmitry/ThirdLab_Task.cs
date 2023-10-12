@@ -41,8 +41,16 @@ namespace Dmitry
         }
         private double termOfArifmeticProgression(double a1, double d, int n) 
         {
-            if (n == 1) return a1;
-            else return termOfArifmeticProgression(a1, d, n - 1) + d;
+            try
+            {
+                if (n == 1) return a1;
+                else return termOfArifmeticProgression(a1, d, n - 1) + d;
+            }
+            catch (Exception ex)
+            {
+                SendExceptionInformationInTxt(myPath, ex);
+                return 0;
+            }
         }
         private void buttonCalculate_Click(object sender, EventArgs e)
         {

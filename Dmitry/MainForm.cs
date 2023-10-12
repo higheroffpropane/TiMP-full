@@ -18,28 +18,28 @@ namespace Dmitry
     {
         static string myPath = "C:\\Users\\higheroffpropane\\source\\repos\\Dmitry\\dimonLog.txt";
         static DateTime lastDateTime = File.GetLastWriteTime(myPath);
-        private int[] count = { 0, 0, 0, 0 };
+        private int[] count = { 0, 0, 0 };
         public MainForm()
         {
             InitializeComponent();
             StreamReader fule = new StreamReader(myPath);
-            //richTextBox1.Text = fule.ReadToEnd();
+            richTextBox1.Text = fule.ReadToEnd();
             fule.Close();
         }
 
         private void openSecondLabButton_Click(object sender, EventArgs e)
         {
-            Form newForm = new SecondLab(new MyDelegate(func));
+            SecondLab newForm = new SecondLab(new MyDelegate (func));
             newForm.Show();
         }
         private void openThirdLabButton_Click(object sender, EventArgs e)
         {
-            Form newForm = new ThirdLab(new MyDelegate(func));
+            ThirdLab newForm = new ThirdLab(new MyDelegate (func));
             newForm.Show();
         }
         private void openFourthLabButton_Click(object sender, EventArgs e)
         {
-            Form newForm = new FourthLab(this);
+            FourthLab newForm = new FourthLab(this);
             newForm.Show();
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -55,13 +55,14 @@ namespace Dmitry
         private void updateRichBox()
         {
             StreamReader f = new StreamReader(myPath);
-            richTextBox1.Text = f.ReadToEnd();
+            //richTextBox1.Text = f.ReadToEnd();
             f.Close();
         }
 
         private void clearLogsButton_Click(object sender, EventArgs e)
         {
             StreamWriter f = new StreamWriter(myPath);
+            f.Dispose();
             f.Close();
         }
 
@@ -75,7 +76,7 @@ namespace Dmitry
         {
             richTextBox1.Text += param + "\r\n" + DateTime.Now.ToString("dd.MM.yyyy") + " " + DateTime.Now.ToLongTimeString() + "\r\n";
             Forms_Parser fp = new Forms_Parser();
-            parse_result pr = fp.Parse(richTextBox1.Text);
+            Parse_Result pr = fp.Parse(richTextBox1.Text);
             MatchCollection matches = pr.matches;
             richTextBox1.Text += $"\r\nВремя парсинга: {pr.time}\r\n";
 
@@ -83,21 +84,17 @@ namespace Dmitry
             {
                 switch (matches[matches.Count - 1].Value)
                 {
-                    case "Form2":
+                    case "SecondLab":
                         count[0]++;
                         richTextBox1.Text += $"Исключений по 2 форме - {count[0]}\r\n\r\n";
                         break;
-                    case "Form3":
+                    case "ThirdLab":
                         count[1]++;
                         richTextBox1.Text += $"Исключений по 3 форме - {count[1]}\r\n\r\n";
                         break;
-                    case "Form4":
+                    case "FourthLab":
                         count[2]++;
                         richTextBox1.Text += $"Исключений по 4 форме - {count[2]}\r\n\r\n";
-                        break;
-                    case "Form5":
-                        count[3]++;
-                        richTextBox1.Text += $"Исключений по 5 форме - {count[3]}\r\n\r\n";
                         break;
                 }
                 foreach (Match match in matches)
